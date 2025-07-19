@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appointment-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appointment-service
+  template:
+    metadata:
+      labels:
+        app: appointment-service
+    spec:
+      containers:
+      - name: appointment-service
+        image: healthcareacrlingaiah.azurecr.io/appointment-service:v1
+        ports:
+        - containerPort: 3002
+        imagePullSecrets:
+      - name: acr-credentials
+          

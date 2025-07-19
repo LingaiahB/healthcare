@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: microservices-ingress
+  annotations:
+    spec.ingressClassName: "nginx" # Adjust if using a different ingress controller
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /patient-service
+        pathType: Prefix
+        backend:
+          service:
+            name: patient-service
+            port:
+              number: 80
+      - path: /appointment-service
+        pathType: Prefix
+        backend:
+          service:
+            name: appointment-service
+            port:
+              number: 80
