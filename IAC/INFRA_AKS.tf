@@ -30,11 +30,11 @@ output "kube_config" {
   sensitive = true
 }
 
-resource "kubernetes_namespace_v1" "healthcare" {
+/* resource "kubernetes_namespace_v1" "healthcare" {
   metadata {
     labels = {
       mylabel = "healthcare"
     }
     name = "healthcare-namespace"
   }
-}
+} */
